@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Scib Customer Service Week 2026</title>
+<style>
+  html,body{margin:0;padding:0;height:100%;background:#000;overflow:hidden;cursor:none;}
+  video{position:fixed;inset:0;width:100%;height:100%;object-fit:contain;background:#000;}
+</style>
+</head>
+<body>
+<video id="v"
+       src="https://cdn.jsdelivr.net/gh/Tife77/scib-assets@Main/videos/serviceweek.mov"
+       autoplay muted loop playsinline preload="auto"></video>
+<script>
+  // Belt-and-braces: some TV browsers need an explicit nudge to start muted autoplay.
+  var v = document.getElementById('v');
+  v.muted = true;
+  var start = function(){ v.play().catch(function(){}); };
+  start();
+  document.addEventListener('click', start, { once:false });
+  document.addEventListener('keydown', start, { once:false });
+  // Try fullscreen on any user interaction (TV remote key counts).
+  function goFs(){
+    var r = document.documentElement;
+    if (r.requestFullscreen) r.requestFullscreen().catch(function(){});
+    else if (r.webkitRequestFullscreen) r.webkitRequestFullscreen();
+  }
+  document.addEventListener('keydown', goFs, { once:true });
+  document.addEventListener('click', goFs, { once:true });
+</script>
+</body>
+</html>
